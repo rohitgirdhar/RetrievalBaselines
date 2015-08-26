@@ -11,6 +11,14 @@ im = single(im);
 if(size(im,1)~=256 || size(im,2)~=256)
     im = imresize(im, [IMAGE_DIM IMAGE_DIM], 'bilinear');
 end
+if(size(im, 3) < 3)
+  disp('fake color');
+  nimg = zeros(size(im, 1), size(im, 2), 3);
+  nimg(:, :, 1) = im(:, :, 1);
+  nimg(:, :, 2) = im(:, :, 1);
+  nimg(:, :, 3) = im(:, :, 1);
+  im = nimg;
+end
 % permute from RGB to BGR (IMAGE_MEAN is already BGR)
 im = im(:,:,[3 2 1]) - IMAGE_MEAN;
 

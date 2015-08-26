@@ -1,15 +1,16 @@
 function extractFeature(imgdir, filenames, savedir, patchsize)
 
 if(patchsize==256)
-	model_def_file = '../../examples/imagenetfeature256.prototxt';
+	model_def_file = 'samplemodel/imagenetfeature256.prototxt';
 elseif(patchsize==128)
-	model_def_file = '../../examples/imagenetfeature128.prototxt';
+	model_def_file = 'samplemodel/imagenetfeature128.prototxt';
 elseif(patchsize==64)
-	model_def_file = '../../examples/imagenetfeature64.prototxt';
+	model_def_file = 'samplemodel/imagenetfeature64.prototxt';
 elseif(patchsize==10)
-	model_def_file = '../../examples/imagenet_deploy.prototxt';
+	model_def_file = 'samplemodel/imagenet_deploy.prototxt';
 end
-model_file = '../../examples/alexnet_train_iter_470000';
+model_file = '/IUS/homes4/rohytg/software/caffe_install/caffe/models/bvlc_alexnet/bvlc_alexnet.caffemodel';
+addpath('/IUS/homes4/rohytg/software/caffe_install/caffe/matlab/caffe/');
 
 % init caffe network (spews logging info)
 caffe('init', model_def_file, model_file);
