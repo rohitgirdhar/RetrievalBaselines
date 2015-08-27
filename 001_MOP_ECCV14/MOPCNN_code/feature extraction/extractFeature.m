@@ -1,5 +1,5 @@
 function extractFeature(imgdir, filenames, savedir, patchsize)
-
+addpath('../utils/');
 if(patchsize==256)
 	model_def_file = 'samplemodel/imagenetfeature256.prototxt';
 elseif(patchsize==128)
@@ -33,8 +33,8 @@ for i=1:length(filenames)
     name = strtrim(name);
     savename = strtrim(savename);
 
-    if(exist(savename))
-        disp('already computed...')
+    if (~lock(savename))
+        disp('already computed/ing...')
         continue;
     end
     
@@ -62,6 +62,7 @@ for i=1:length(filenames)
         mkdir(fileparts(savename));
     end
     save(savename, 'S');
+    unlock(savename);
 end
 
 

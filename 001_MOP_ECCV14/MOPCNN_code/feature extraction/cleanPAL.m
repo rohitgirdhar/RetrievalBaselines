@@ -1,5 +1,5 @@
 function cleanPAL()
-
+addpath('../utils/');
 try
   matlabpool open;
 catch

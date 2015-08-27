@@ -1,5 +1,5 @@
 function Feature_PAL(patchsize)
-
+addpath('../utils/');
 imgdir = '/IUS/vmr105/rohytg/data/005_ExtendedPAL2_moreTest/corpus_resized/';
 savedir = '/IUS/vmr105/rohytg/data/005_ExtendedPAL2_moreTest/baselines/001_MOPCNN/features/';
 imgslistfpath = '/IUS/vmr105/rohytg/data/005_ExtendedPAL2_moreTest/lists/Images.txt';
