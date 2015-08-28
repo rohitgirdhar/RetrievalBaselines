@@ -8,7 +8,8 @@ dim = size(X,2);
 cc = size(C,1);
 
 % for each local feature, find its center
-D = dist_mat(X,C);
+%D = dist_mat(X,C);
+D = pdist2(X,C,'euclidean');
 
 k = 5;
 [a,idx] = sort(D,2);
